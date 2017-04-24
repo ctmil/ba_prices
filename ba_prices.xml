@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+        <record id="view_ba_prices_filter" model="ir.ui.view">
+            <field name="name">ba.prices.filter</field>
+            <field name="model">product.product.price</field>
+            <field name="arch" type="xml">
+                <search string="Search Prices">
+                    <field name="product_id" />
+                    <field name="pricelist_id" />
+                </search>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ba_product_price_tree">
+            <field name="name">ba.product.product.price.tree</field>
+            <field name="model">product.product.price</field>
+            <field name="arch" type="xml">
+                <tree string="Mensajes" create="false" edit="false" delete="false">
+                        <field name="product_id" />
+                        <field name="pricelist_id" />
+                        <field name="price" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="ba_prices_action" model="ir.actions.act_window">
+            <field name="name">Consulta Precios</field>
+            <field name="res_model">product.product.price</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_ba_prices_filter"/>
+        </record>
+
+
+        <menuitem id="menuitem_ba_prices"
+                parent="base.menu_product"
+                action="ba_prices_action"
+                name="Consulta Precios" />
+
+  </data>
+</openerp>
