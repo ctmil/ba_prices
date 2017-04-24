@@ -11,8 +11,6 @@ import datetime
 from openerp.fields import Date as newdate
 from datetime import datetime,date
 
-from openerp.addons.l10n_ar_fpoc.invoice import document_type_map, responsability_map
-
 #Get the logger
 _logger = logging.getLogger(__name__)
 
